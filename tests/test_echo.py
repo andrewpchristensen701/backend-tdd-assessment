@@ -1,13 +1,12 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+
 import unittest
 import echo
 import subprocess
 
 
 # Your test case class goes here
-"""Created by ZacharyKline with help from Peter to finish
-    off the finite details"""
 
 
 class TestEcho(unittest.TestCase):
@@ -36,10 +35,7 @@ class TestEcho(unittest.TestCase):
         self.assertAlmostEquals(args.title, True)
 
     def test_help(self):
-        """ Running the program without arguments should show usage. """
 
-        # Run the command `python ./echo.py -h` in a separate process, then
-        # collect it's output.
         process = subprocess.Popen(
             ["python", "./echo.py", "-h"],
             stdout=subprocess.PIPE)
