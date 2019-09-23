@@ -44,18 +44,18 @@ class TestEcho(unittest.TestCase):
 
         self.assertEquals(stdout, usage)
 
-    def text_all(self):
-        result = echo.upper('hello')
-        result = echo.lower(result)
-        result = echo.title(result)
-
-        self.assertEquals(result, 'Hello')
-
-    def text_none(self):
+    def test_all(self):
         parser = echo.create_parser()
-        args = parser.parse_args(['hello'])
-        result = echo.main(args)
-        self.assertEquals(result, 'hello')
+        args = parser.parse_args(['-tul', 'hello'])
+        print(args)
+        string = "hello"
+        result = echo.lower(echo.upper(echo.title(string)))
+        self.assertEquals(result, "hello")
+        self.assertEquals(args.upper, True)
+        self.assertEquals(args.lower, True)
+        self.assertEquals(args.title, True)
+
+
 
 
 if __name__ == '__main__':
